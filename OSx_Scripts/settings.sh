@@ -50,10 +50,12 @@ vm_auth_cert_private="~/.ssh_id_rsa"
 vm_name_prefix="rp"
 #vnet name to keeps azure vms in the same subnet 
 vnet_name="rp-vnet1" 
+resource_group_name="redis-rg"
 #azure service name for all nodes
 service_name="rp-service"
 #region where to provision all nodes
 region="'west US'"
+location="westUS"
 #number of data-disks to attach - check the max data-disk allowed on each SKU
 data_disk_count=1
 #size of the data-disk in GB max is 1023
@@ -63,10 +65,12 @@ data_disk_size=1023
 ##jumpbox settings
 #disable jumpbox: set to 1 to diable jumpbox. jumpbox is provisioned for security reasons. you may need to open 8443 and other rp server ports to the public internet without it. 
 disable_jumpbox=0
+vm_name_prefix_jumpbox="redis-jumpbox"
 #image to use for the jumpbox. using windows server by default
+jumpbox_image="win2016datacenter"
 jumpbox_image_name="a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-20160329-en.us-127GB.vhd"
 #jumpbox vm sku to use. 
-jumpbox_vm_sku="Standard_D2"
+jumpbox_vm_sku="Standard_DS1_v2"
 #TODO: change this username
 jumpbox_vm_admin_account_name="rl_vmadmin"
 #TODO: change this password
@@ -74,6 +78,7 @@ jumpbox_vm_admin_account_password="redisl@bs123"
 
 ##cluster settings
 #ubuntu OS image to use on azure
+rp_vm_image=ubuntu14
 rp_vm_image_name="b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160314-en-us-30GB"
 #cluster vm sku to use. Standard_D2 can be used as the minimum HW. 
 rp_vm_sku="Standard_D2"
