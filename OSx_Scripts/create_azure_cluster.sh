@@ -52,7 +52,7 @@ fi
 
 #create vnet with large vm count - 1024
 echo $info_color"INFO"$no_color": CREATE VNET: creating vnet with large vm count. This command may fail if you already have the vnet with the same name created in your account."
-cmd="az network vnet create -n $vnet_name --resource-group $resource_group_name --address-prefixes 10.0.0.0/24 --location $location"
+cmd="az network vnet create -n $vnet_name --resource-group $resource_group_name --address-prefixes 10.0.0.0/16 --subnet-name redis_subnet --subnet-prefix 10.0.0.0/24"
 echo $info_color"INFO"$no_color": RUNNING COMMAND: $cmd"
 eval $cmd
 
@@ -60,7 +60,7 @@ eval $cmd
 if [ $disable_jumpbox -ne 1 ]
     then
 	echo $info_color"INFO"$no_color": Working on jumpbox instance."
-	cmd="az vm create --resource-group $resource_group_name --name $vm_name_prefix_jumpbox --vnet-name $vnet_name --image $jumpbox_image --size $jumpbox_vm_sku  --authentication-type password --admin-username $jumpbox_vm_admin_account_name --admin-password $jumpbox_vm_admin_account_password"
+	cmd="az vm create --resource-group $resource_group_name --name $vm_name_prefix_jumpbox --vnet-name $vnet_name --subnet redis_subnet  --image $jumpbox_image --size $jumpbox_vm_sku  --authentication-type password --admin-username $jumpbox_vm_admin_account_name --admin-password $jumpbox_vm_admin_account_password"
     echo $info_color"INFO"$no_color": RUNNING COMMAND: "$cmd 
     eval $cmd
 fi
@@ -72,7 +72,7 @@ do
 	echo $info_color"--------------------------------------------------------------------------------"$no_color
 	echo $info_color"INFO"$no_color": WORKING ON VM INSTANCE: $i"
 	echo ""
-    cmd="az vm create --resource-group $resource_group_name --name $vm_name_prefix-$i --vnet-name $vnet_name --image $rp_vm_image_name --authentication-type ssh  --ssh-key-value $vm_auth_cert_public --admin-username $rp_vm_admin_account_name"
+    cmd="az vm create --resource-group $resource_group_name --name $vm_name_prefix-$i --vnet-name $vnet_name --subnet redis_subnet  --image $rp_vm_image_name --authentication-type ssh  --ssh-key-value $vm_auth_cert_public --admin-username $rp_vm_admin_account_name"
     echo $info_color"INFO"$no_color": RUNNING COMMAND: "$cmd 
     eval $cmd
     sleep 120
