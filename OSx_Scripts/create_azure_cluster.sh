@@ -78,12 +78,10 @@ do
     sleep 120
 
 	#grab ip address for ssh access
-	echo $info_color"INFO"$no_color": GET IP ADDRESS for VM INSTANCE: $i"
-	echo ""
-    cmd="az vm list-ip-addresses --resource-group $resource_group_name --name $vm_name_prefix-$i --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress --output tsv"
+	cmd="az vm list-ip-addresses --resource-group $resource_group_name --name $vm_name_prefix-$i --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress --output tsv"
     echo $info_color"INFO"$no_color": RUNNING COMMAND: "$cmd 
     ssh_address=$(eval $cmd)
-	echo $info_color"INFO"$no_color": EXTERNAL IP ADDRESS: "$ssh_address
+	echo $info_color"INFO"$no_color": VM EXTERNAL IP ADDRESS: "$ssh_address
     
 	#check if persisted drives required
 	if [ $data_disk_count -gt 0 ]
@@ -165,7 +163,6 @@ do
         echo $info_color"INFO"$no_color": FIRST NODE IP:  $first_node_ip"
 
 		#move license file if one exists
-		echo "DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG "
 		if [ ! -z ${rp_license_file} ]
 		then
 			echo $info_color"INFO"$no_color": UPLOADING LICENSE FILE"
