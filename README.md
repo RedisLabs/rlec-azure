@@ -10,6 +10,7 @@ Simple automated setup for a Redis Enterprise Software deployment on Azure. Idea
 
 Redis Enterprise Software can be deployed to use both RAM and Flash drives such as SSDs for data processing. See [Redis on Flash](https://redislabs.com/redis-enterprise-documentation/concepts-architecture/memory-architecture/redis-flash/)) for details. Redis Enterprise Pack can also support active-active geo-distributed applications with [Redis CRDTs](https://redislabs.com/redis-enterprise-documentation/concepts-architecture/intercluster-replication/)
 
+
 ![RP Architecture](https://raw.githubusercontent.com/RedisLabs/redis-enterprise-azure/master/images/redis_arch.jpeg)
 
 ### Getting Started
