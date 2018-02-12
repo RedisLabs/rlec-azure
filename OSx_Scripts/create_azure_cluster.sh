@@ -92,7 +92,7 @@ do
 		do 
 			#attach data-disks to vm
 			echo $info_color"INFO"$no_color": WORKING ON PERSISTED DATA DISK: $j"
-			cmd="az vm disk attach --resource-group $resource_group_name  --vm-name $vm_name_prefix-$i --disk myDataDisk_$j --new --size-gb $data_disk_size"
+			cmd="az vm disk attach --resource-group $resource_group_name  --vm-name $vm_name_prefix-$i --disk redisdisk-$vm_name_prefix-$i-$j --new --size-gb $data_disk_size"
 			echo $info_color"INFO"$no_color": RUNNING COMMAND: "$cmd 
 			eval $cmd
 		done
