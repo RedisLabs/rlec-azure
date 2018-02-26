@@ -88,13 +88,13 @@ rp_vm_admin_account_name="CLUSTER NODE USERNAME"
 #this will enable removing the .ssh/known_hosts file under MacOS. The file gets in the way of reprovisioning the same node names for the cluster.
 remove_known_hosts=1
 #enable fast delete will supress confirmation on deletes of each VM. do this only if you are certain delete will not harm your existing VMs and you have tried the script multiple times.
-enable_fast_delete=1
+enable_fast_delete=0
 #enable fast restart will supress confirmation on restarts of each VM. do this only if you are certain restart will not harm your existing VMs and you have tried the script multiple times.
 enable_fast_restart=1
 #enable fast start will supress confirmation on start of each VM. do this only if you are certain start will not harm your existing VMs and you have tried the script multiple times.
 enable_fast_start=1
 #enable fast shutdown will supress confirmation on shutdowns of each VM. do this only if you are certain shutdown will not harm your existing VMs and you have tried the script multiple times.
-enable_fast_shutdown=1
+enable_fast_shutdown=0
 #print colors
 info_color="\033[1;32m"
 warning_color="\033[0;32m"
