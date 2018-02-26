@@ -45,9 +45,6 @@ resource_group_name="redis-rg"
 #TODO: use "azure login -u account" +  "azure account show" to get  account and subscriptionid
 azure_account="ADD ACCOUNT DETAILS"
 azure_subscription_id="ADD SUBSCRIPTION ID"
-#TODO: certs for ssh. use ssh-keygen to generate the keys - public and private
-vm_auth_cert_public="~/.ssh/id_rsa.pub"
-vm_auth_cert_private="~/.ssh/id_rsa"
 #prefix to use for the VM name for all nodes 
 vm_name_prefix="rp"
 #vnet name to keeps azure vms in the same subnet - pick from "azure network vnet list"
@@ -55,7 +52,6 @@ vnet_name="rpvnet"
 #azure service name for all nodes
 service_name="redislabs-service"
 #region where to provision all nodes
-location="westUS"
 region="'west US'"
 #number of data-disks to attach - check the max data-disk allowed on each SKU
 data_disk_count=2
@@ -81,8 +77,11 @@ jumpbox_vm_admin_account_password="JUMPBOX PASSWORD"
 rp_vm_image_name="Canonical:UbuntuServer:14.04.5-LTS:14.04.201802221"
 #cluster vm sku to use. Standard_D2 can be used as the minimum HW. 
 rp_vm_sku="Standard_D2"
-#rp cluster vm admin account name
+#TODO: rp cluster vm admin account name
 rp_vm_admin_account_name="CLUSTER NODE USERNAME"
+#TODO: certs for ssh. use ssh-keygen to generate the keys - public and private
+vm_auth_cert_public="~/.ssh/id_rsa.pub"
+vm_auth_cert_private="~/.ssh/id_rsa"
 
 #misc settings
 #this will enable removing the .ssh/known_hosts file under MacOS. The file gets in the way of reprovisioning the same node names for the cluster.
