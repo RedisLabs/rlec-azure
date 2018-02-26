@@ -68,17 +68,17 @@ data_disk_size=1023
 disable_jumpbox=0
 vm_name_prefix_jumpbox="redis-jumpbox"
 #image to use for the jumpbox. using windows server by default
-jumpbox_image="win2016datacenter"
+jumpbox_image="MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest"
 #jumpbox vm sku to use. 
 jumpbox_vm_sku="Standard_D2"
 #TODO: change this username
-jumpbox_vm_admin_account_name="rl_vmadmin"
+jumpbox_vm_admin_account_name="JUMPBOX USERNAME"
 #TODO: change this password
-jumpbox_vm_admin_account_password="redisl@bs123"
+jumpbox_vm_admin_account_password="JUMPBOX PASSWORD"
 
 ##cluster settings
 #ubuntu OS image to use on azure
-rp_vm_image_name="Canonical:UbuntuServer:14.04.5-LTS:14.04.201801220"
+rp_vm_image_name="Canonical:UbuntuServer:14.04.5-LTS:14.04.201802221"
 #cluster vm sku to use. Standard_D2 can be used as the minimum HW. 
 rp_vm_sku="Standard_D2"
 #rp cluster vm admin account name
